@@ -1,0 +1,1 @@
+default_app_config = 'app_datas_regulatorias.apps.AppDatasRegulatoriasConfig'
