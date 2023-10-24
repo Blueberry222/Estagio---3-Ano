@@ -27,19 +27,24 @@ class Informe(models.Model):
     class Meta:
         verbose_name = "Informe"
         verbose_name_plural = "Informes"
+        
+    def __str__(self):
+        nome = f"Informe {self.numero}"
+        return nome
     
 class Atividade(models.Model):
     descricao = models.CharField(max_length=100, null=False, blank=False)
     data_entrega = models.DateField()
-    progresso_atual = models.CharField(max_length=100, null=False, blank=False) # Alterar para porcentagem
-    progresso_necessario = models.CharField(max_length=100, null=False, blank=False) # Alterar para porcentagem
+    progresso_atual = models.CharField(max_length=100) # Alterar para porcentagem
+    progresso_necessario = models.CharField(max_length=100) # Alterar para porcentagem
     
     class Meta:
         verbose_name = "Atividade"
         verbose_name_plural = "Atividades"
     
 class TarefaRegulatoria(models.Model):
-    escopo = models.CharField(max_length=500, null=False, blank=False)
+    titulo = models.CharField(max_length=25, null=False, blank=False, default=" ")
+    escopo = models.CharField(max_length=500, null=False, blank=False, default=" ")
     atividade = models.ForeignKey(Atividade, on_delete=models.PROTECT)
     produto = models.ForeignKey(Produto, on_delete=models.PROTECT)
     informe = models.ForeignKey(Informe, on_delete=models.PROTECT)
@@ -47,4 +52,7 @@ class TarefaRegulatoria(models.Model):
     class Meta:
         verbose_name = "Tarefa Regulatoria"
         verbose_name_plural = "Tarefa Regulatorias"
+        
+    def __str__(self):
+        return self.titulo
     

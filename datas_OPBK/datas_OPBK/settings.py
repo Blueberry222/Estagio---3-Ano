@@ -124,7 +124,7 @@ USE_TZ = True
 
 # Static URL and root directory
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # List of directories to find static files
 STATICFILES_DIRS = [

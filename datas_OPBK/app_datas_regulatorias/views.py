@@ -1,7 +1,8 @@
+from django.http import JsonResponse
 from django.shortcuts import render
+from .models import TarefaRegulatoria
+from django.core import serializers
 
-def index(request):
-    return render(request, 'app_datas_regulatorias/index.html')
-
-def analytics(request):
-    return render(request, 'app_datas_regulatorias/analytics.html')
+def dashboard_tarefa(request):
+    tarefas = TarefaRegulatoria.objects.all()
+    return render(request, 'dashboard_tarefa.html', {'tarefas': tarefas})
