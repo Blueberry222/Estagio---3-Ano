@@ -33,10 +33,11 @@ class Informe(models.Model):
         return nome
     
 class Atividade(models.Model):
+    
     descricao = models.CharField(max_length=100, null=False, blank=False)
     data_entrega = models.DateField()
-    progresso_atual = models.CharField(max_length=100) # Alterar para porcentagem
-    progresso_necessario = models.CharField(max_length=100) # Alterar para porcentagem
+    progresso_atual = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
+    progresso_necessario = models.DecimalField(max_digits=5, decimal_places=2, default=100.00) 
     
     class Meta:
         verbose_name = "Atividade"
