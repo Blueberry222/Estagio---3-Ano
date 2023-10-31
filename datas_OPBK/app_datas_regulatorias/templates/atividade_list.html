@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atividade List</title>
+</head>
+<body>
+    <h1>Atividade List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Data de Entrega</th>
+                <!-- Add other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for atividade in atividades %}
+            <tr>
+                <td>{{ atividade.descricao }}</td>
+                <td>{{ atividade.data_entrega }}</td>
+                <!-- Add other fields as needed -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p> Add button print </p>
+    <p> Add status </p>
+    <p> beatufy </p>
+</body>
+</html>
