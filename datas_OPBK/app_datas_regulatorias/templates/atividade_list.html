@@ -7,6 +7,31 @@
         body {
             font-family: 'Trebuchet MS';
         }
+            body {
+                font-family: 'Trebuchet MS';
+            }
+    
+            .back-button {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+            }
+
+        .status-em-progresso {
+            color: blue;
+        }
+
+        .status-concluido {
+            color: green;
+        }
+
+        .status-atrasado {
+            color: red;
+        }
+
+        .status-todo {
+            color: orange;
+        }
     </style>
 </head>
 
@@ -25,6 +50,8 @@
         </div>
     </header>
 
+    <a href="/" class="btn btn-secondary back-button">Voltar</a>
+
     <div class="container mt-4">
         <ul class="list-group">
             {% for atividade in atividades %}
@@ -33,8 +60,14 @@
                     <p class="mb-1"><strong>Data de Entrega:</strong> {{ atividade.data_entrega }}</p>
                     <p class="mb-1"><strong>Progresso Atual:</strong> {{ atividade.progresso_atual }} %</p>
                     <p class="mb-1"><strong>Progresso Necessário:</strong> {{ atividade.progresso_necessario }} %</p>
-                    <p class="mb-1"><strong>Status:</strong> <u>{{ atividade.status }}</u></p>
-                </li>
+                    <p class="mb-1"><strong>Status:</strong> <u class="
+                        {% if atividade.status == 'Em Progresso' %}status-em-progresso
+                        {% elif atividade.status == 'Concluído' %}status-concluido
+                        {% elif atividade.status == 'Atrasado' %}status-atrasado
+                        {% else %}status-todo{% endif %}">
+                        {{ atividade.status }}</u>
+                    </p>
+                    </li>
             {% endfor %}
         </ul>
     </div>

@@ -42,7 +42,7 @@ class Produto_Admin(admin.ModelAdmin):
     list_filter = ['tipo']
     
 class Tarefa_Admin(admin.ModelAdmin):
-    list_display = ('titulo', 'escopo')
+    list_display = ('titulo', 'escopo', 'informe')
 
 admin.site.register(Atividade, Atividade_Admin)
 

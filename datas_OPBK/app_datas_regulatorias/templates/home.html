@@ -6,7 +6,28 @@
     <style>
         body {
             font-family: 'Trebuchet MS';
+            background-color: #f5f5f5; /* Background color for the entire page */
         }
+
+        .centered-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .bordered-div {
+            border: 2px solid #000000; /* Blue border */
+            padding: 50px; /* Add padding for spacing */
+        }
+
+        header {
+            background-color: #512ce6; /* Blue header background color */
+            color: #fff; /* White text color */
+            text-align: center;
+            padding: 20px;
+        }
+        
     </style>
 </head>
     <header class="text-black text-center py-4">
@@ -21,19 +42,13 @@
             </div>
         </div>
     </header>
-
+<br>
 <body>
-    <div class="container-fluid">
-        <div class="column" align="center">
-            <div class="col-md-4 text-center">
-                <a href="#" class="btn btn-primary btn-lg btn-block my-5">Button 1</a>
-            </div>
-            <div class="col-md-4 text-center">
-                <a href="#" class="btn btn-success btn-lg btn-block my-5">Button 2</a>
-            </div>
-            <div class="col-md-4 text-center">
-                <a href="#" class="btn btn-info btn-lg btn-block my-5">Button 3</a>
-            </div>
+    <div class="centered-div">
+        <div class="bordered-div">
+            <a href="/tarefas" class="btn btn-primary btn-lg btn-block my-4">Tarefas Regulatórias</a> 
+            <a href="/atividades" class="btn btn-info btn-lg btn-block my-4">Atividades</a>
+            <a href="/admin" class="btn btn-success btn-lg btn-block my-4">Admin</a>
         </div>
     </div>
 
