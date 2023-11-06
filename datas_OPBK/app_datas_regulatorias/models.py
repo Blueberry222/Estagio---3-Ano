@@ -43,11 +43,14 @@ class Atividade(models.Model):
         verbose_name = "Atividade"
         verbose_name_plural = "Atividades"
     
+    def __str__(self):
+        return self.descricao
+    
 class TarefaRegulatoria(models.Model):
     titulo = models.CharField(max_length=25, null=False, blank=False, default=" ")
     escopo = models.CharField(max_length=500, null=False, blank=False, default=" ")
-    atividade = models.ForeignKey(Atividade, on_delete=models.PROTECT)
-    produto = models.ForeignKey(Produto, on_delete=models.PROTECT)
+    atividade = models.ManyToManyField(Atividade)
+    produto = models.ManyToManyField(Produto)
     informe = models.ForeignKey(Informe, on_delete=models.PROTECT)
     
     class Meta:

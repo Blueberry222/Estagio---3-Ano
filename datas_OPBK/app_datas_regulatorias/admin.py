@@ -32,53 +32,22 @@ class Atividade_Admin(admin.ModelAdmin):
         return "TODO"
     
     display_status_progress.short_description = 'Status'
-'''
-    def export_as_pdf(modeladmin, request, queryset):
-        response = HttpResponse(content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="atividades.pdf"'
 
-        # Create a PDF document
-        p = canvas.Canvas(response)
-        p.drawString(100, 750, "Atividade Table")
-
-        # Get the data and render it as a table in the PDF
-        data = queryset.values_list('descricao', 'data_entrega', 'progresso_atual', 'progresso_necessario')
-        y = 700  # Y-coordinate to start rendering data
-        p.drawString(50, y, "Descrição")
-        p.drawString(125, y, "Data de Entrega")
-        p.drawString(250, y, "Progresso Atual")
-        p.drawString(400, y, "Progresso Necessario")
-
-        for row in data:
-            y -= 20  # Adjust the Y-coordinate for the next row
-            p.drawString(50, y, str(row[0]))
-            p.drawString(125, y, str(row[1]))
-            p.drawString(250, y, str(row[2]))
-            p.drawString(400, y, str(row[3]))
-
-
-        # Close the PDF
-        p.showPage()
-        p.save()
-
-        return response
-    
-    export_as_pdf.short_description = "Exportar Selecionados em PDF"
-    actions = [export_as_pdf]
-    actions_on_top = False
-    actions_on_bottom = True
-    '''
 class Informe_Admin(admin.ModelAdmin):
     list_display = ['numero', 'link']
     search_fields = ['numero']
     
 class Produto_Admin(admin.ModelAdmin):
-    pass
+    list_display = ('nome', 'tipo')
+    list_filter = ['tipo']
+    
+class Tarefa_Admin(admin.ModelAdmin):
+    list_display = ('titulo', 'escopo')
 
 admin.site.register(Atividade, Atividade_Admin)
 
 admin.site.register(Informe, Informe_Admin)
 
-admin.site.register(Produto)
+admin.site.register(Produto, Produto_Admin)
 
-admin.site.register(TarefaRegulatoria)
+admin.site.register(TarefaRegulatoria, Tarefa_Admin)
