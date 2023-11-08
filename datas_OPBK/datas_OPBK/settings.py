@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_datas_regulatorias'
+    'app_datas_regulatorias',
+    'django_extensions'
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
