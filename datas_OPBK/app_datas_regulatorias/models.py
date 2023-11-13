@@ -22,7 +22,7 @@ class Produto(models.Model):
     
 class Informe(models.Model):
     numero = models.CharField(max_length=100, null=False, blank=False)
-    link = models.CharField(max_length=200, null=False, blank=False) # Alterar para lidar com link?
+    link = models.CharField(max_length=200, null=False, blank=False)
     
     class Meta:
         verbose_name = "Informe"
